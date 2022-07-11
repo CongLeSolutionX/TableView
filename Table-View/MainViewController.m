@@ -7,7 +7,9 @@
 
 #import "MainViewController.h"
 
-@interface MainViewController ()
+@interface MainViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) UITableView *tableView;
 
 @end
 
@@ -15,15 +17,15 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  tableView = [[UITableView alloc] init];
-  tableView.frame = self.view.bounds; // makes the table view expands entire the window screen
+  self.tableView = [[UITableView alloc] init];
+  self.tableView.frame = self.view.bounds; // makes the table view expands entire the window screen
   
-  tableView.dataSource = self;
-  tableView.delegate = self;
+  self.tableView.dataSource = self;
+  self.tableView.delegate = self;
 
-  [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-  [tableView reloadData];
-  [self.view addSubview:tableView];
+  [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+  [self.tableView reloadData];
+  [self.view addSubview:self.tableView];
 }
 
 #pragma mark - UITableViewDataSource
@@ -35,6 +37,7 @@
   if (cell == nil) {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
   }
+  cell.textLabel.text = @"Hi";
   return cell;
 }
 
@@ -43,7 +46,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+  return 1;
 }
 
 #pragma mark - UITableViewDelegate
