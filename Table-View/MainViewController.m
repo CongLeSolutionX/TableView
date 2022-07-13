@@ -6,7 +6,6 @@
 //
 
 #import "MainViewController.h"
-
 @interface MainViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -37,12 +36,16 @@
   if (cell == nil) {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
   }
-  cell.textLabel.text = @"Hi";
+  NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+  attachment.image = [UIImage imageNamed:@"help.jpeg"];
+  attachment.bounds = CGRectMake(0, 0, 30, 30);
+  NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
+    cell.textLabel.attributedText = attachmentString;
   return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return 10;
+  return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -53,5 +56,4 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   printf("you pressed me\n");
 }
-
 @end
