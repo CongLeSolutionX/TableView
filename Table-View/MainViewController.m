@@ -50,9 +50,15 @@
   // 1. Create a attributed string with image and text
   // 2. Tap on TableView cell and display a helft-screen view controller
   NSTextAttachment *imageAttachment = [[NSTextAttachment alloc] init];
-  imageAttachment.image = [UIImage imageNamed:@"help.jpeg"];
+  UIImage *image = [[UIImage imageNamed:@"help.jpeg"] imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
+  imageAttachment.image = image;
   imageAttachment.bounds = CGRectMake(0, -5, 20, 20);
-  NSAttributedString *attributedImageAttachment = [NSAttributedString attributedStringWithAttachment:imageAttachment];
+
+  NSMutableAttributedString *attributedImageAttachment = [NSMutableAttributedString attributedStringWithAttachment:imageAttachment];
+
+  [attributedImageAttachment addAttribute:NSForegroundColorAttributeName
+                           value:[UIColor redColor]
+                           range:NSMakeRange(0, attributedImageAttachment.length)];
 
   NSMutableAttributedString *messageToDisplay;
   messageToDisplay = [[NSMutableAttributedString alloc] initWithString:@"This is a test for image "];
