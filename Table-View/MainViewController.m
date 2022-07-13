@@ -36,11 +36,20 @@
   if (cell == nil) {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
   }
-  NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
-  attachment.image = [UIImage imageNamed:@"help.jpeg"];
-  attachment.bounds = CGRectMake(0, 0, 30, 30);
-  NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
-    cell.textLabel.attributedText = attachmentString;
+  /// Approach:
+  // 1. Create a attributed string with image and text
+  // 2. Tap on TableView cell and display a helft-screen view controller
+  NSTextAttachment *imageAttachment = [[NSTextAttachment alloc] init];
+  imageAttachment.image = [UIImage imageNamed:@"help.jpeg"];
+  imageAttachment.bounds = CGRectMake(0, 0, 20, 20);
+  NSAttributedString *attributedImageAttachment = [NSAttributedString attributedStringWithAttachment:imageAttachment];
+
+  NSMutableAttributedString *messageToDisplay;
+  messageToDisplay = [[NSMutableAttributedString alloc] initWithString:@"This is a test for image "];
+
+  [messageToDisplay appendAttributedString:attributedImageAttachment];
+
+  cell.textLabel.attributedText = messageToDisplay;
   return cell;
 }
 
