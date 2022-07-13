@@ -10,21 +10,31 @@
 
 @property (strong, nonatomic) UITableView *tableView;
 
+- (void)setupTableView;
+
 @end
 
 @implementation MainViewController
+- (void)viewWillAppear:(BOOL)animated {
+  [self setupTableView];
+}
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+}
+
+- (void)setupTableView {
   self.tableView = [[UITableView alloc] init];
   self.tableView.frame = self.view.bounds; // makes the table view expands entire the window screen
-  
+
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
 
   [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
   [self.tableView reloadData];
   [self.view addSubview:self.tableView];
+
+  self.tableView.backgroundColor = [UIColor blueColor];
 }
 
 #pragma mark - UITableViewDataSource
@@ -41,7 +51,7 @@
   // 2. Tap on TableView cell and display a helft-screen view controller
   NSTextAttachment *imageAttachment = [[NSTextAttachment alloc] init];
   imageAttachment.image = [UIImage imageNamed:@"help.jpeg"];
-  imageAttachment.bounds = CGRectMake(0, 0, 20, 20);
+  imageAttachment.bounds = CGRectMake(0, -5, 20, 20);
   NSAttributedString *attributedImageAttachment = [NSAttributedString attributedStringWithAttachment:imageAttachment];
 
   NSMutableAttributedString *messageToDisplay;
@@ -63,6 +73,9 @@
 
 #pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  printf("you pressed me\n");
+  switch (indexPath.row) {
+    case 0:
+      printf("I am here\n");
+  }
 }
 @end

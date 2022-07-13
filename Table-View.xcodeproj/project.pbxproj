@@ -12,6 +12,7 @@
 		4CD8CF762877516100D32F40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CD8CF752877516100D32F40 /* Assets.xcassets */; };
 		4CD8CF792877516100D32F40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD8CF772877516100D32F40 /* LaunchScreen.storyboard */; };
 		4CD8CF7C2877516100D32F40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD8CF7B2877516100D32F40 /* main.m */; };
+		4CD8CF8F287F4DCA00D32F40 /* AnotherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD8CF8E287F4DCA00D32F40 /* AnotherViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		4CD8CF782877516100D32F40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CD8CF7A2877516100D32F40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CD8CF7B2877516100D32F40 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4CD8CF8D287F4DCA00D32F40 /* AnotherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnotherViewController.h; sourceTree = "<group>"; };
+		4CD8CF8E287F4DCA00D32F40 /* AnotherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnotherViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,8 @@
 				4CD8CF6A2877516000D32F40 /* AppDelegate.m */,
 				4CD8CF6F2877516000D32F40 /* MainViewController.h */,
 				4CD8CF702877516000D32F40 /* MainViewController.m */,
+				4CD8CF8D287F4DCA00D32F40 /* AnotherViewController.h */,
+				4CD8CF8E287F4DCA00D32F40 /* AnotherViewController.m */,
 				4CD8CF752877516100D32F40 /* Assets.xcassets */,
 				4CD8CF772877516100D32F40 /* LaunchScreen.storyboard */,
 				4CD8CF7A2877516100D32F40 /* Info.plist */,
@@ -139,6 +144,7 @@
 			files = (
 				4CD8CF712877516000D32F40 /* MainViewController.m in Sources */,
 				4CD8CF6B2877516000D32F40 /* AppDelegate.m in Sources */,
+				4CD8CF8F287F4DCA00D32F40 /* AnotherViewController.m in Sources */,
 				4CD8CF7C2877516100D32F40 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
