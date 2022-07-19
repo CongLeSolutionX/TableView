@@ -6,6 +6,8 @@
 //
 
 #import "MainViewController.h"
+#import "AnotherViewController.h"
+
 @interface MainViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -66,9 +68,15 @@
   [messageToDisplay appendAttributedString:attributedImageAttachment];
 
   cell.textLabel.attributedText = messageToDisplay;
+
+  UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(printMe:)];
+  [cell addGestureRecognizer:tapped];
   return cell;
 }
 
+- (void)printMe:(UITapGestureRecognizer*)sender {
+  printf("I am sdsdfsdf!");
+}
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return 1;
 }
@@ -79,9 +87,10 @@
 
 #pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  //AnotherViewController *newView = [[AnotherViewController alloc] init];
   switch (indexPath.row) {
     case 0:
-      printf("I am here\n");
+      printf("I am pressed!");
   }
 }
 @end
